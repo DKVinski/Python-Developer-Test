@@ -16,7 +16,7 @@ def decorator(func):
             tic = time.perf_counter()
             if tic - toc < 5 * 60:
                 wrapper_decorator.num_calls = 0
-                seed((time.perf_counter()-time.perf_counter())*1000)
+                seed((time.perf_counter()-time.perf_counter())*100000)
                 cache_key += int(random())
                 if cache_key not in wrapper_decorator.cache:
                     wrapper_decorator.cache[cache_key] = func(*args, **kwargs)
